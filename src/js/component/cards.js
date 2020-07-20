@@ -1,24 +1,24 @@
 import React from "react";
+import PropType from "prop-types";
 
-export function Cards() {
+export const Cards = prop => {
 	return (
-		<div className="card" style="width: 18rem;">
+		<div className="card">
+			<img
+				className="card-img-top"
+				src={prop.image}
+				alt="Card image cap"
+			/>
 			<div className="card-body">
-				<h5 className="card-title">{"Card title"}</h5>
-
-				<h6 className="card-subtitle mb-2 text-muted">
-					{"Card subtitle"}
-				</h6>
-				<p className="card-text">{"Card subtitle"}</p>
-
-				<a href="#" className="card-link">
-					{"Card subtitle"}
-				</a>
-
-				<a href="#" className="card-link">
-					{"Card subtitle"}
-				</a>
+				<h5 className="card-title">{prop.title}</h5>
+				<p className="card-text">{prop.text}</p>
 			</div>
 		</div>
 	);
-}
+};
+
+Cards.propType = {
+	title: PropType.string,
+	image: PropType.string,
+	text: PropType.string
+};
